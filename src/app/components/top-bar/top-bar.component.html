@@ -1,0 +1,12 @@
+<div class="bar-container">
+    <div class="restrict-content">
+        <a routerLink="/" class="company-logo">NodeHome</a>
+        <span *ngIf="!isLogged;else logged">
+            <a routerLink="/login" class="login">Ingreso de Asesores</a>
+        </span>
+        <ng-template #logged>
+            <a class="login pointer" (click)="goAdmin()">Administrar</a>
+            <a class="login pointer" (click)="logout()">Cerrar sesión</a>
+        </ng-template>
+    </div>
+</div>

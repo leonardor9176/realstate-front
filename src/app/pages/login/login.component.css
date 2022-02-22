@@ -1,0 +1,63 @@
+.login{
+    background-color: var(--dcyan);
+    margin: 0px;
+    height: 100vh;
+}
+.bg-img{
+    background-image: url('https://cdn.pixabay.com/photo/2016/11/21/15/09/apartments-1845884_960_720.jpg');
+    filter: blur(7px);
+    -webkit-filter: blur(7px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    max-width: 500px;
+    height: 500px;
+    margin: 0px auto;
+    padding: 20px;
+
+}
+form{
+    /* background-color: rgb(0,0,0); Fallback color */
+  /* background-color: rgba(0,0,0, 0.4); */
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 500px;
+  height: 450px;
+  padding: 20px;
+  text-align: center;
+}
+form>h1{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+form>input{
+    display: block;
+    margin: 60px auto;
+}
+
+.loading {
+    position: absolute;
+    top: 75px;
+    background-color: rgba(0,0,0, 0.4);
+    background-position: center;
+    background-size: cover;
+
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.loading>.loading-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+

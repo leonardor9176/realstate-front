@@ -1,0 +1,44 @@
+#header{
+    height: 470px;
+}
+
+#subheader1{
+    background-color: var(--dcyan);
+    height: 350px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#subheader1>img{
+    height: 150%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.location{
+    display: inline-block;
+    text-transform: capitalize;
+    font-size: 32px;
+    margin: 0px;
+}
+.btn-contact{
+    display: flex;
+    float: right;
+    right: 0px;
+    margin: 10px 0px;
+}
+.fee{
+    font-size:x-large;
+    margin: 0px;
+}
+
+.floor{
+    font-size: large;
+    margin: 0px;
+}
+
+.additional-info{
+    font-size: medium;
+    margin: 0px;
+}

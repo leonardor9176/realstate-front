@@ -1,0 +1,127 @@
+<div class="container">
+    <div class="row">
+        <div class="btn-container d-flex justify-content-center">
+            <div class="btn-edit">
+                <button (click)="openCreateProperty()">
+                    Crear Nueva Propiedad
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngFor="let property of properties">
+        <app-property-card-admin [property]="property" (sendProperty)="editProperty($event)" (delProperty)="openDeleteProperty($event)"></app-property-card-admin>
+    </div>
+</div>
+
+
+<ng-template #edit_property let-c="close" let-d="dismiss">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">
+                Editar Apartamento
+            </h4>
+        </div>
+        <div class="modal-body">
+            <div class="">
+                <form [formGroup]="editPropertyForm">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="location" class="font-weight-light small">Ubicación</label>
+                            <br>
+                            <input type="text" name="location" formControlName="location" ngModel="{{propertyToEdit?.location}}" class="text-capitalize form-control" [ngClass]="{'is-invalid' : sub && f['location'].errors, 'is-valid' : location.valid && (location.dirty || location.touched)}">
+                        </div>
+                        <div class="col-4">
+                            <label for="address" class="font-weight-light small">Direccion</label>
+                            <br>
+                            <input type="text" name="address" formControlName="address" ngModel="{{propertyToEdit?.address}}" class="text-capitalize form-control" [ngClass]="{'is-invalid' : sub && f['address'].errors, 'is-valid' : address.valid && (address.dirty || address.touched)}">
+                        </div>
+                        <div class="col-4">
+                            <label for="floor" class="font-weight-light small">Piso</label>
+                            <br>
+                            <input type="number" name="floor" min="1" formControlName="floor" ngModel="{{propertyToEdit?.floor}}" class="form-control" [ngClass]="{'is-invalid' : sub && f['floor'].errors, 'is-valid' : floor.valid && (floor.dirty || floor.touched)}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="n_rooms" class="font-weight-light small">Núm de habitaciones</label>
+                            <br>
+                            <input type="number" name="n_rooms" min="1" formControlName="n_rooms" ngModel="{{propertyToEdit?.n_rooms}}" class="form-control" [ngClass]="{'is-invalid' : sub && f['n_rooms'].errors, 'is-valid' : n_rooms.valid && (n_rooms.dirty || n_rooms.touched)}">
+                        </div>
+                        <div class="col-4">
+                            <label for="n_bathrooms" class="font-weight-light small">Núm de baños</label>
+                            <br>
+                            <input type="number" name="n_bathrooms" formControlName="n_bathrooms" ngModel="{{propertyToEdit?.n_bathrooms}}" class="form-control" [ngClass]="{'is-invalid' : sub && f['n_bathrooms'].errors, 'is-valid' : n_bathrooms.valid && (n_bathrooms.dirty || n_bathrooms.touched)}">
+                        </div>
+                        <div class="col">
+                            <label for="integral_kitchen" class="font-weight-light small">Cocina integral</label>
+                            <br>
+                            <select name="integral_kitchen" formControlName="integral_kitchen" ngModel="{{propertyToEdit?.integral_kitchen}}" class="form-control" [ngClass]="{'is-invalid' : sub && f['integral_kitchen'].errors, 'is-valid' : integral_kitchen.valid && (integral_kitchen.dirty || integral_kitchen.touched)}">
+                                <option value="true">Si</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="yard" class="font-weight-light small">Patio</label>
+                            <br>
+                            <select name="yard" formControlName="yard" ngModel="{{propertyToEdit?.yard}}" class="form-control" [ngClass]="{'is-invalid' : sub && f['yard'].errors, 'is-valid' : yard.valid && (yard.dirty || yard.touched)}">
+                                <option value="true">Si</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="fee" class="font-weight-light small">Canon</label>
+                            <br>
+                            <input type="number" name="fee" min="1" formControlName="fee" ngModel="{{propertyToEdit?.fee}}" class="form-control" [ngClass]="{'is-invalid' : sub && f['fee'].errors, 'is-valid' : fee.valid && (fee.dirty || fee.touched)}">
+                        </div>
+                        <div class="col-8">
+                            <label for="picture" class="font-weight-light small">Link a imágen</label>
+                            <br>
+                            <input type="text" name="picture" formControlName="picture" ngModel="{{propertyToEdit?.picture}}" class="form-control" [ngClass]="{'is-invalid' : sub && f['picture'].errors, 'is-valid' : picture.valid && (picture.dirty || picture.touched)}">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label for="description" class="font-weight-light small">Descripción</label>
+                        <textarea name="description" rows="5" formControlName="description" ngModel="{{propertyToEdit?.description}}" class="form-control" [ngClass]="{'is-invalid' : sub && f['description'].errors, 'is-valid' : description.valid && (description.dirty || description.touched)}">
+                        </textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="validate()">
+                Guardar
+            </button>
+            <button type="button" class="btn btn-outline-dark" (click)="d()">
+                Cancelar
+            </button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #delete_property let-c="close" let-d="dismiss">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">
+                Eliminar Apartamento
+            </h4>
+        </div>
+        <div class="modal-body">
+            <div class="">
+                <h2>Esta operación eliminará la propiedad seleccionada</h2>
+                <h3>¿Seguro deseas continuar?</h3>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="deleteProperty()">
+                Eliminar
+            </button>
+            <button type="button" class="btn btn-outline-dark" (click)="d()">
+                Cancelar
+            </button>
+        </div>
+    </div>
+</ng-template>

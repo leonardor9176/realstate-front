@@ -1,0 +1,46 @@
+#header{
+    height: 470px;
+}
+#subheader1{
+    background-color: var(--dcyan);
+    height: 350px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#subheader1>img{
+    height: 150%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#top-visited-container{
+    position: absolute;
+    top: 320px;
+    left: 0;
+    right: 0;
+    /* bottom: 0; */
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--tealblue);
+    height: 200px;
+
+
+}
+.card{
+    display: inline-block;
+    width: 240px;
+    height: 180px;
+}
+.img-over{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 50px;
+}
+.img-over>img{
+    height: 100%;
+}

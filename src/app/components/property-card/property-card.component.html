@@ -1,0 +1,26 @@
+<div class="h-100 card-container" *ngIf="property">
+    <!-- increaseVisit(property._id) -->
+    <a [routerLink]="['/property', property._id]" (click)="increaseVisit(property._id)">
+        <img src="{{property?.picture}}" alt="" class="img">
+        <div class="information w-100 container">
+            <div class="row">
+                <span class="location">{{property?.location}}, {{property?.address}}</span>
+            </div>
+            <div class="row">
+                <span class="fee">{{property?.fee}}</span>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <fa-icon [icon]="faBed"></fa-icon>
+                    <span> {{property?.n_rooms}}</span>
+                </div>
+                <div class="col">
+
+                    <fa-icon [icon]="faShower"></fa-icon>
+                    <span> {{property?.n_bathrooms}}</span>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+<router-outlet></router-outlet>

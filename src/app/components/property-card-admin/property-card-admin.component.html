@@ -1,0 +1,194 @@
+<div class="container card my-3">
+    <!-- <div class="row">
+        <div class="btn-container d-flex justify-content-center">
+            <div class="btn-edit">
+                <button (click)="open(edit_property, false)">
+                    Crear Propiedad
+                </button>
+            </div>
+        </div>
+    </div> -->
+    <div class="row my-3">
+        <div class="col-4">
+            <div class="row">
+                <div class="img">
+                    <img src="{{property?.picture}}" alt="" class="img">
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-flex justify-content-center">
+                    <p><span class="h5">Visitas: </span> <span>{{property.visits}}</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col-4">
+                    <p>
+                        <span class="h5">Ubicación: </span>
+                        <span class="text-capitalize">{{property?.location}}</span>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p>
+                        <span class="h5">Direccion: </span>
+                        <span class="text-capitalize">{{property?.address}}</span>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p>
+                        <span class="h5">Piso: </span>
+                        <span class="text-capitalize">{{property?.floor}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <p>
+                        <span class="h5">Núm de habitaciones: </span>
+                        <span class="text-capitalize">{{property?.n_rooms}}</span>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p>
+                        <span class="h5">Núm de baños: </span>
+                        <span class="text-capitalize">{{property?.n_bathrooms}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <p>
+                        <span class="h5">Cocina integral: </span>
+                        <span class="text-capitalize">{{property?.integral_kitchen? 'Si': 'No'}}</span>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p>
+                        <span class="h5">Patio: </span>
+                        <span class="text-capitalize">{{property?.yard? 'Si': 'No'}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>
+                        <span class="h5">Canon: </span>
+                        <span class="text-capitalize">{{property?.fee}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <p>
+                    {{property?.description}}
+                </p>
+            </div>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-1">
+                    <div class="btn-container d-flex justify-content-center">
+                        <div class="btn-edit">
+                            <button (click)="editProperty()">
+                                Editar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col"></div>
+                <div class="col-1">
+                    <div class="btn-container d-flex justify-content-center">
+                        <div class="btn-edit">
+                            <button (click)="deleteProperty()">
+                                Eliminar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <ng-template #edit_property let-c="close" let-d="dismiss">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">
+                Editar Apartamento
+            </h4>
+        </div>
+        <div class="modal-body">
+            <div class="">
+                <form [formGroup]="editPropertyForm">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="location" class="font-weight-light small">Ubicación</label>
+                            <br>
+                            <input type="text" name="location" formControlName="location" ngModel="{{propertyAux?.location}}" class="text-capitalize">
+                        </div>
+                        <div class="col-4">
+                            <label for="address" class="font-weight-light small">Direccion</label>
+                            <br>
+                            <input type="text" name="address" formControlName="address" ngModel="{{propertyAux?.address}}" class="text-capitalize">
+                        </div>
+                        <div class="col-4">
+                            <label for="floor" class="font-weight-light small">Piso</label>
+                            <br>
+                            <input type="number" name="floor" min="1" formControlName="floor" ngModel="{{propertyAux?.floor}}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="n_rooms" class="font-weight-light small">Núm de habitaciones</label>
+                            <br>
+                            <input type="number" name="n_rooms" min="1" formControlName="n_rooms" ngModel="{{propertyAux?.n_rooms}}">
+                        </div>
+                        <div class="col-4">
+                            <label for="n_bathrooms" class="font-weight-light small">Núm de baños</label>
+                            <br>
+                            <input type="number" name="n_bathrooms" formControlName="n_bathrooms" ngModel="{{propertyAux?.n_bathrooms}}">
+                        </div>
+                        <div class="col">
+                            <label for="integral_kitchen" class="font-weight-light small">Cocina integral</label>
+                            <br>
+                            <select name="integral_kitchen" formControlName="integral_kitchen" ngModel="{{propertyAux?.integral_kitchen}}">
+                                <option value="true">Si</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="yard" class="font-weight-light small">Patio</label>
+                            <br>
+                            <select name="yard" formControlName="yard" ngModel="{{propertyAux?.yard}}">
+                                <option value="true">Si</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="fee" class="font-weight-light small">Canon</label>
+                            <br>
+                            <input type="number" name="fee" min="1" formControlName="fee" ngModel="{{propertyAux?.fee}}">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <textarea name="description" rows="5" formControlName="description" ngModel="{{propertyAux?.description}}">
+                        </textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="save()">
+                Guardar
+            </button>
+            <button type="button" class="btn btn-outline-dark" (click)="d('Cross click')">
+                Cancelar
+            </button>
+        </div>
+    </div>
+</ng-template> -->

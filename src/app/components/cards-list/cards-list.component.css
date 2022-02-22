@@ -1,0 +1,30 @@
+.final-row-cols{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.cards-container{
+    background-color: aliceblue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.card{
+    display: inline-block;
+    width: 240px;
+    height: 180px;
+    margin: 12px;
+}
+
+.btn-container{
+    margin: 20px auto;
+}
+
+form{
+    background-color: var(--madang);
+    
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}

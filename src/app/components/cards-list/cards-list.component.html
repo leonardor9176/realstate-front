@@ -1,0 +1,73 @@
+<div class="container">
+    <form [formGroup]="filterForm">
+        <div>
+            <label for="location" class="font-weight-light small">Ubicación</label>
+            <br>
+            <select name="locations" formControlName="location">
+                <option value="">Cualquiera</option>
+                <option class="text-capitalize" [value]="location" *ngFor="let location of locationsList">
+                    {{location}}
+                </option>
+            </select>
+        </div>
+        <div>
+            <label for="fee" class="font-weight-light small">Cánon entre {{rangePrice[0]}} y
+                {{filterForm.controls['fee'].value}} </label>
+            <br>
+            <input type="range" name="fee" min="{{rangePrice[0]}}" max="{{rangePrice[1]}}" value="{{rangePrice[1]}}"
+                step="200000" formControlName="fee">
+        </div>
+        <div>
+            <label for="n_rooms" class="font-weight-light small">Habitaciones</label>
+            <br>
+            <select name="n_rooms" formControlName="n_rooms">
+                <option value="">Cualquiera</option>
+                <option value="1">1 o más</option>
+                <option value="2">2 o más</option>
+                <option value="3">3 o más</option>
+                <option value="4">4 o más</option>
+            </select>
+        </div>
+        <div>
+            <label for="n_bathrooms" class="font-weight-light small">Baños</label>
+            <br>
+            <select name="n_bathrooms" formControlName="n_bathrooms">
+                <option value="">Cualquiera</option>
+                <option value="1">1 o más</option>
+                <option value="2">2 o más</option>
+                <option value="3">3 o más</option>
+                <option value="4">4 o más</option>
+            </select>
+        </div>
+        <div>
+            <label for="integral_kitchen" class="font-weight-light small">Cocina Integral</label>
+            <br>
+            <select name="integral_kitchen" formControlName="integral_kitchen">
+                <option value="">Cualquiera</option>
+                <option value="true">Si</option>
+                <option value="false">No</option>
+            </select>
+        </div>
+        <div>
+            <label for="yard" class="font-weight-light small">Patio</label>
+            <br>
+            <select name="yard" formControlName="yard">
+                <option value="">Cualquiera</option>
+                <option value="true">Si</option>
+                <option value="false">No</option>
+            </select>
+        </div>
+        <div>
+            <div class="btn-container">
+                <button (click)="filter()">Filtrar</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+<br>
+<div class="container cards-container">
+    <div class="card" *ngFor="let property of propertiesToDisplay">
+        <app-property-card [property]="property"></app-property-card>
+    </div>
+</div>

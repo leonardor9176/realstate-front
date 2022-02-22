@@ -1,0 +1,21 @@
+<div id="header">
+    <div id="subheader1">
+        <img src="https://cdn.pixabay.com/photo/2016/11/21/15/09/apartments-1845884_960_720.jpg" alt="">
+    </div>
+    <div id="top-visited-container" class="container">
+        <div class="card" *ngFor="let item of top3; index as i">
+            <app-property-card [property]="item"></app-property-card>
+            <div [ngSwitch]="i">
+                <div *ngSwitchCase="0" class="img-over">
+                    <img src="assets/media/1st.png" alt="1st most visited"/>
+                </div>
+                <div *ngSwitchCase="1" class="img-over">
+                    <img src="assets/media/2nd.png" alt="2nd most visited">
+                </div>
+                <div *ngSwitchCase="2" class="img-over">
+                    <img src="assets/media/3rd.png" alt="3rd most visited">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

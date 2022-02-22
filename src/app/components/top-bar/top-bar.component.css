@@ -1,0 +1,26 @@
+
+.bar-container{
+    background-color: var(--mustard);
+}
+.restrict-content{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.company-logo{
+    font-family: 'Nunito', sans-serif;
+    padding-left: 50px;
+    font-size: 50px;
+    text-decoration: none;
+}
+
+.login{
+    text-decoration: none;
+    /* position: absolute; */
+    float: right;
+    padding-right: 50px;
+    margin-top: 40px;
+}
+
+.pointer{
+    cursor: pointer;
+}
