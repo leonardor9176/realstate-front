@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 las credenciales de los usuarios creados son:
 
 usuario: 12345
-contraseña: pmito123
+contraseña: pmiro123
 
 usuario: 12340
 contraseña: jperez123
