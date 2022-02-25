@@ -12,9 +12,6 @@ contraseña: pmiro123
 usuario: 12340
 contraseña: jperez123
 
-usuario: 12341
-contraseña: nmiguez
-
 usuario: 12342
 contraseña: rpaez123
 
